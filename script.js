@@ -1,4 +1,4 @@
-var images = ["images/minastirith.jpg", "images/castle.jpg", "images/england.jpg", "images/horses.jpg", "images/matamata.jpg", "images/mountains.jpg", "images/nz-beach.jpg", "images/puntacana.jpg"];
+var images = ["images/minastirith.jpg", "images/mossy-beach.jpg", "images/tree.jpg", "images/horses.jpg", "images/matamata.jpg", "images/mountains.jpg", "images/nz-beach.jpg", "images/puntacana.jpg"];
 
 $(document).ready( function() {
 	function loopImages() {
@@ -8,6 +8,7 @@ $(document).ready( function() {
 	}
 		
 	function outputImages(image) {
+
 		var imageWrapper = document.createElement('div');
 		imageWrapper.id = 'imageWrapper' + images.indexOf(image);
 		imageWrapper.className = 'imageWrapper col-xs-6';
@@ -64,6 +65,13 @@ $(document).ready( function() {
 			}, 999, function() {
 			});
 		});
+	});
+
+	$('#submit').click(function() {
+		var userImg = document.getElementById('newImage').value;
+		images.push(userImg);
+		var lastImage = images[images.length - 1];
+		outputImages(lastImage);
 	});
 });
 
