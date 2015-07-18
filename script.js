@@ -34,25 +34,32 @@ $(document).ready( function() {
 		function setImage() {
 			$('.image').attr('src', imgSrc);
 		}
+		function fadeImage(indexImg) {
+			$('.image').fadeOut('slow');
+			$('.image').attr('src', images[indexImg]);
+		}
 
 		//Previous/Next Functionality
 		$('.prev').click(function() {
 			if (indexImg > 0) {
+				$('.image').fadeOut('slow', function() {
+					$('.image').attr('src', images[indexImg]);
+				});
 				indexImg--;
-				$('.image').attr('src', images[indexImg]);
+				$('.image').fadeIn();
 			} else {
 				indexImg = images.length - 1;
-				$('.image').attr('src', images[indexImg]);
+				fadeImage(indexImg);
 			}
 		});
 
 		$('.next').click(function() {
 			if (indexImg < images.length - 1) {
 				indexImg++;
-				$('.image').attr('src', images[indexImg]);
+				fadeImage(indexImg);
 			} else {
 				indexImg = 0;
-				$('.image').attr('src', images[indexImg]);
+				fadeImage(indexImg);
 			}
 		});
 
