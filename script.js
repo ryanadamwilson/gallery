@@ -48,18 +48,27 @@ $(document).ready( function() {
 				indexImg--;
 				$('.image').fadeIn();
 			} else {
+				$('.image').fadeOut('slow', function() {
+					$('.image').attr('src', images[indexImg]);
+				});
 				indexImg = images.length - 1;
-				fadeImage(indexImg);
+				$('.image').fadeIn();
 			}
 		});
 
 		$('.next').click(function() {
 			if (indexImg < images.length - 1) {
+				$('.image').fadeOut('slow', function() {
+					$('.image').attr('src', images[indexImg]);
+				});
 				indexImg++;
-				fadeImage(indexImg);
+				$('.image').fadeIn();
 			} else {
+				$('.image').fadeOut('slow', function() {
+					$('.image').attr('src', images[indexImg]);
+				});
 				indexImg = 0;
-				fadeImage(indexImg);
+				$('.image').fadeIn();
 			}
 		});
 
